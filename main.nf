@@ -142,6 +142,7 @@ process STAR {
         --runThreadN $task.cpus \
         --outFileNamePrefix "${sample_id}_" \
         --outSAMtype BAM Unsorted \
+        --outBAMcompression 5 \
         --readFilesIn $reads \
         $params.additional_star
     """
