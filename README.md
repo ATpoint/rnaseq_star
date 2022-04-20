@@ -21,3 +21,5 @@ nextflow run main.nf \
     --gtf 'path/to/gtf'
 
 ```
+
+Use option `-queue-size` (default 100) when submitting via SLURM in case of many samples.
