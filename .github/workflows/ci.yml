@@ -1,0 +1,41 @@
+# CI tests using GitHub Actions
+
+name: CI
+
+on:
+  # trigger on push
+  push:
+    # to all branches
+    branches:
+      - '**'
+    # ignore LICENSE, all .ignore and markdown files
+    paths-ignore:
+      - '*.md'
+      - '*.ignore'
+      - LICENSE
+  pull_request:
+    branches:
+      - '**'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  
+  # Test via Docker and conda:
+  CI:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: INSTALL-NEXTFLOW
+        run: |
+          wget -qO- get.nextflow.io | bash
+          sudo mv nextflow /usr/local/bin/
+
+      - name: TEST-DOCKER_ALL
+        run: NXF_VER=21.10.6 nextflow run main.nf -profile docker,test
