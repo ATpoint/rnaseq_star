@@ -1,0 +1,11 @@
+name: rnaseq_star
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - bioconductor-rsubread=2.4.3
+  - fastqc
+  - multiqc
+  - star=2.7.5a
+  - subread=2.0.1
