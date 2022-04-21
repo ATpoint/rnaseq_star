@@ -23,3 +23,6 @@ nextflow run main.nf \
 ```
 
 Use option `-queue-size` (default 100) when submitting via SLURM in case of many samples.
+
+Note to myself on memory:
+- mapping to mouse (GRCm38, Mus_musculus.GRCm38.101.chr.gtf) uses 18-19GB of RAM
