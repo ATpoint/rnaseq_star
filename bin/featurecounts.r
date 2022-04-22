@@ -13,7 +13,12 @@ rs <-
 
 invisible(lapply(c("counts", "annotation", "stat"), function(x){
   
-  write.table(rs[[x]], file=paste0(x, ".txt"),
+  wr <- rs[[x]]
+  
+  #/ add genes which are the rownames directly to the matrix
+  if(x=="counts") wr <- data.frame(Gene=rownames(wr), wr)
+  
+  write.table(wr, file=paste0(x, ".txt"),
               col.names=TRUE, row.names=FALSE,
               quote=FALSE, sep="\t")
  
