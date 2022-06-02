@@ -9,7 +9,7 @@ rs <-
   Rsubread::featureCounts(files=files, annot.ext=gtf, isGTFAnnotationFile=TRUE,
                           GTF.featureType="exon", GTF.attrType="gene_id", GTF.attrType.extra=NULL,
                           chrAliases=NULL, useMetaFeatures=TRUE, allowMultiOverlap=FALSE, 
-                          isPairedEnd=TRUE, nthreads=threads)
+                          isPairedEnd=TRUE, nthreads=threads, countMultiMappingReads=FALSE)
 
 invisible(lapply(c("counts", "annotation", "stat"), function(x){
   
